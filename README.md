@@ -71,7 +71,7 @@ This category will be added a user , when category add must be stay login. If wa
     -   User can store category `Get /category/store `
 -   **Category Update:**
     -   User can update category, pass Id in Font-end `Get /category/update/{id} `
-    -   **Category Delete:**
+-   **Category Delete:**
     -   User can delete category, pass Id in Font-end `Get /category/delete/{id} `
 
 ## Authentication
