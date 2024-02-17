@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,10 @@ Route::post('userUpdate', [UserController::class, 'UserUpdate'])->middleware('au
 Route::post('/sendOTP', [UserController::class, 'SendOTP']);
 Route::post('/verifyOTP', [UserController::class, 'VerifyOTP']);
 Route::post('/resetPassword', [UserController::class, 'ResetPassword'])->middleware('auth:sanctum');
+
+//Category Related Api
+Route::get('category', [CategoryController::class, 'index'])->middleware('auth:sanctum');
+Route::post('category/store', [CategoryController::class, 'store'])->middleware('auth:sanctum');
+Route::post('category/update/{id}', [CategoryController::class, 'update'])->middleware('auth:sanctum');
+Route::delete('category/delete/{id}', [CategoryController::class, 'delete'])->middleware('auth:sanctum');
+

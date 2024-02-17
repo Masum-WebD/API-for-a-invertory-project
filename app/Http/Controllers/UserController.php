@@ -39,7 +39,7 @@ class UserController extends Controller
 
     function UserLogin(Request $request)
     {
-        dd($request);
+        // dd($request);
         try {
             $request->validate([
                 'email' => 'required|string|email|max:50',
@@ -51,7 +51,7 @@ class UserController extends Controller
             if (!$user || !Hash::check($request->input('password'), $user->password)) {
                 return response()->json(['status' => 'failed', 'message' => 'Invalid user']);
             };
-            
+
             $token = $user->createToken('authToken')->plainTextToken;
 
             return response()->json(['status' => 'success', 'message' => 'Login successfully', 'token' => $token]);
