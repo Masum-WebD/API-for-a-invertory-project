@@ -21,7 +21,8 @@ Route::get('/', function () {
 
 //web Api route
 Route::post('/user_registration', [UserController::class, 'UserRegistration']);
-Route::post('login', [UserController::class, 'UserLogin']);
+Route::get('login', [UserController::class, 'login'])->name('login');
+Route::post('user-login', [UserController::class, 'UserLogin'])->name('login.store');
 Route::get('/userProfile', [UserController::class, 'UserProfile'])->middleware('auth:sanctum');
 Route::get('/userLogout', [UserController::class, 'UserLogout'])->middleware('auth:sanctum');
 Route::post('userUpdate', [UserController::class, 'UserUpdate'])->middleware('auth:sanctum');
@@ -30,8 +31,8 @@ Route::post('/verifyOTP', [UserController::class, 'VerifyOTP']);
 Route::post('/resetPassword', [UserController::class, 'ResetPassword'])->middleware('auth:sanctum');
 
 //Category Related Api
-Route::get('category', [CategoryController::class, 'index'])->middleware('auth:sanctum');
+Route::get('category', [CategoryController::class, 'index']);
+Route::get('/category-list', [CategoryController::class, 'categoryList']);
 Route::post('category/store', [CategoryController::class, 'store'])->middleware('auth:sanctum');
 Route::post('category/update/{id}', [CategoryController::class, 'update'])->middleware('auth:sanctum');
 Route::delete('category/delete/{id}', [CategoryController::class, 'delete'])->middleware('auth:sanctum');
-

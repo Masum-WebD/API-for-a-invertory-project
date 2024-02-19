@@ -12,8 +12,18 @@ class CategoryController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        $categories = Category::where('user_id', '=', $user_id);
-        //return view
+        // $categories = Category::where('user_id', '=', $user_id);
+        $categories = Category::all();
+        // dd($categories);
+        return view('pages.category-list');
+    }
+    public function categoryList()
+    {
+        $user_id = Auth::id();
+        // $categories = Category::where('user_id', '=', $user_id);
+        $categories = Category::all();
+        // dd($categories);
+        return $categories;
     }
 
     public function store(Request $request)
@@ -49,7 +59,8 @@ class CategoryController extends Controller
         } catch (Exception $e) {
             return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
         }
-    }    public function delete(Request $request, $id)
+    }
+    public function delete(Request $request, $id)
     {
         try {
             Category::where('id', $id)->delete();
