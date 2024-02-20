@@ -68,11 +68,11 @@ This category will be added a user , when category add must be stay login. If wa
 -   **Category Get list:**
     -   Every Sign user get own category `Get /Category `
 -   **Category Store:**
-    -   User can store category `Get /category/store `
+    -   User can store category `Post /category/store `
 -   **Category Update:**
-    -   User can update category, pass Id in Font-end `Get /category/update/{id} `
+    -   User can update category, pass Id in Font-end `Post /category/update/{id} `
 -   **Category Delete:**
-    -   User can delete category, pass Id in Font-end `Get /category/delete/{id} `
+    -   User can delete category, pass Id in Font-end `Post /category/delete/{id} `
 
 ## Authentication
 
